@@ -1,0 +1,24 @@
+<!-- //Importando o VueJS para dentro do HTML -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<!-- Template -->
+<div id="app">
+    <input type="text" v-on:input="alterarTitulo">
+    <p>{{ titulo }}</p>
+</div> 
+
+<script>
+    //Objeto de VUE
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJS 2!'
+        },
+        methods: {
+            alterarTitulo(event) {
+                //de dentro da instância do VUE
+                this.titulo = event.target.value
+            }
+        }
+    })
+</script>

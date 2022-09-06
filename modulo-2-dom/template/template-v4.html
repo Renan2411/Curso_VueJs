@@ -1,0 +1,26 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <!-- //Padrão de dupla chaves. Pega o parametro da intancia VUE criada -->
+    <h1 cr3="anc" >{{ titulo }}</h1>
+    <h1>{{ saudacao() }}</h1>
+    <!-- Liga a propriedade da tag ao valor do atributo do objeto vue -->
+    <a v-bind:href="link">google</a>
+</div>  
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Boa Semana',
+            link: 'http://google.com.br'
+        },
+        methods:{
+            saudacao(){
+                //Acessando outros métodos e atributos com o this.
+                console.log(this);
+                return this.titulo;
+            }
+        }    
+    });
+</script>

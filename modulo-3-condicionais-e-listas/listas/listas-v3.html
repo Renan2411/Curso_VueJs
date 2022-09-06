@@ -1,0 +1,56 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+
+    <ul>
+        <!-- Aqui ele também consegue pegar a posição do elemento, o indíce em que ele se encontra -->
+        <!-- Repete o elemento em que a diretiva está -->
+        <li v-for="(cor, index) in cores">{{ index + 1 }} => {{ cor }}</li>
+    </ul>
+
+    <!-- Repete os elementos que estão contidos dentro desse template -->
+    <template v-for="(cor, index) in cores">
+        <h1>{{ cor }}</h1> => <span>{{ index }}</span>
+    </template>
+
+    <hr>
+
+    <ul>
+        <li v-for="pessoa in pessoas">
+            <!-- Nome: {{ pessoa.nome }},
+            Idade: {{ pessoa.idade }},
+            Peso: {{ pessoa.peso }}, -->
+
+            <!-- Quando temos um array de objetos, podemos fazer o v-for receber 3 parâmetros, o valor, a chave e o index do dado, nessa ordem -->
+
+            <span v-for="(valor, chave, index) in pessoa"> 
+                {{chave}} {{index + 1}} => {{valor}}
+            </span>
+        </li>
+    </ul>
+
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            cores: ['vemelho', 'verde', 'amarelo', 'azul'],
+            pessoas: [
+                { nome: 'Ana', idade: 20, peso: 59 },
+                { nome: 'Renan', idade: 19, peso: 68 },
+                { nome: 'Laísa', idade: 19, peso: 58 },
+                { nome: 'Edenilson', idade: 21, peso: 75 },
+                { nome: 'Luíza', idade: 19, peso: 65 }
+            ]
+        }
+    })
+</script>
+
+<style>
+    h1,
+    p {
+        display: inline;
+    }
+</style>

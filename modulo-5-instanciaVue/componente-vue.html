@@ -1,0 +1,45 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <comp>
+    </comp>
+   
+</div>
+
+<script>
+
+    //Forma para criar um componente com a intância Vue;
+    Vue.component('comp', {
+        template: `
+            <div>
+                <h1>{{ aula }}</h1>
+                <h2>{{ modulo }}</h2>
+    
+                <button @click="alterarAula">Alterar Aula</button>
+                <button @click="alterarModulo">Alterar Modulo</button>
+            </div>
+        `,
+
+        //Dessa forma, cada componente terá o seu próprio estado
+        data: function () {
+            return {
+                aula: 'Aula: Montando Intância Vue',
+                modulo: 'Módulo: Instância Vue'
+            }
+        },
+        methods: {
+            alterarAula() {
+                this.aula += '#'
+            },
+            alterarModulo() {
+                this.modulo += '#'
+            }
+        }
+    });
+
+    const vm = new Vue({
+        el: '#app',
+    })
+
+</script>
